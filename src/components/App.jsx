@@ -4,6 +4,8 @@ const divPadding = {
     margin: '2% auto',
 }
 
+let hasLoaded = false;
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +17,10 @@ class App extends Component {
     }
     handleInputChange = (val) => {
         this.setState({ input: val });
+    }
+    toggleHasLoaded() {
+        hasLoaded = !hasLoaded;
+        console.log(hasLoaded);
     }
     render() {
         return (
@@ -30,7 +36,7 @@ class App extends Component {
                     value={this.state.input}
                     onChange={(e) => this.handleInputChange(e.target.value)}
                 ></input></div>
-                <div style={divPadding}><button>toggle hasLoaded</button></div>
+                <div style={divPadding}><button onClick={this.toggleHasLoaded}>toggle hasLoaded</button></div>
             </React.Fragment>
         )
     }
