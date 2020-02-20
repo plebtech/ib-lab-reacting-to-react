@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+const divPadding = {
+    margin: '2% auto',
+}
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -9,17 +13,25 @@ class App extends Component {
         }
         this.greeting = this.props.greeting;
     }
+    handleInputChange = (val) => {
+        this.setState({ input: val });
+    }
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h1>
                     {this.greeting}
                 </h1>
                 <h2>
                     {this.state.text}
                 </h2>
-                <input placeholder={this.state.placeholder}></input>
-            </div>
+                <div><input
+                    placeholder={this.state.placeholder}
+                    value={this.state.input}
+                    onChange={(e) => this.handleInputChange(e.target.value)}
+                ></input></div>
+                <div style={divPadding}><button>toggle hasLoaded</button></div>
+            </React.Fragment>
         )
     }
 }
