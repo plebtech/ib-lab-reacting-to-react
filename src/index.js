@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import './styles.css';
+import App from './components/App.jsx';
+
+let element = (
+    'this is a string, passed as a property'
+);
 
 ReactDOM.render(
-    <App />,
+    <App greeting={element} />,
     document.getElementById('root')
 );
