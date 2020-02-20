@@ -4,17 +4,19 @@ import React, { Component } from 'react';
 const divPadding = {
     margin: '2% auto',
 }
-
+const element2 = (
+    'this is a string passed as a variable (defined within the JSX)'
+);
+// if props not passed, JSX compiles but will not render in browser ('cannot read property of undefined').
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: 'this is some text from state',
+            text: this.props.greeting,
             placeholder: 'placeholder',
             hasLoaded: false,
             // input: not set initially, added via input handler.
         }
-        this.greeting = this.props.greeting;
     }
     // called by eventListener on input field, updates state on change.
     handleInputChange = (val) => {
@@ -30,10 +32,10 @@ class App extends Component {
             return (
                 <React.Fragment>
                     <h1>
-                        {this.greeting}
+                        {this.state.text}
                     </h1>
                     <h2>
-                        {this.state.text}
+                        {element2}
                     </h2>
                     <div><input
                         placeholder={this.state.placeholder}
